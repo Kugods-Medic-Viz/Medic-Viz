@@ -20,6 +20,18 @@ $ npm install
 $ npm start
 ```
 
+```bash
+#.env 파일 추가
+# firebase database config - SDK
+REACT_APP_APIKEY=####
+REACT_APP_AUTH_DOMAIN=####
+REACT_APP_PROJECT_ID=####
+REACT_APP_STORAGE_BUCKET=####
+REACT_APP_MESSAGIN_ID=####
+REACT_APP_APP_ID=####
+REACT_APP_MEASUREMENT_ID=####
+```
+
 ---
 
 ## 브랜치 전략
