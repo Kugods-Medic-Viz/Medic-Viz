@@ -10,11 +10,12 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
+  const [errorMsg, setErrorMsg] = useState();
 
-  const handleOnChange = (event) => {
+  const handleOnChange = (e) => {
     const {
       target: { name, value },
-    } = event;
+    } = e;
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -22,28 +23,39 @@ function SignUp() {
     }
   };
 
-  const handleOnSubmit = async (event) => {
-    event.preventDefault();
-    //test용 변수
-    let data;
+  const handleOnClick = async (e) => {
+    e.preventDefault();
     try {
+      setErrorMsg("");
       if (newAccount) {
-        data = await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
         alert("가입 성공!");
       } else {
         alert("이미 가입된 계정입니다!");
-        data = signInWithEmailAndPassword(auth, email, password);
+        signInWithEmailAndPassword(auth, email, password);
       }
-      console.log(data);
     } catch (error) {
-      alert("오류!");
-      console.log(error);
+      console.log(error.code);
+      setErrorMsg(error);
+      switch (error.code) {
+        case "auth/weak-password":
+          setErrorMsg("비밀번호는 6자리 이상이어야 합니다.");
+          break;
+        case "auth/invalid-email":
+          setErrorMsg("잘못된 이메일 주소입니다.");
+          break;
+        case "auth/email-already-in-use":
+          setErrorMsg("이미 가입되어 있는 계정입니다.");
+          break;
+      }
+      alert(errorMsg);
     }
   };
+
   return (
     <>
       <h1> 회원가입 페이지 </h1>
-      <form onSubmit={handleOnSubmit}>
+      <form>
         <div>
           Email :
           <input
@@ -66,11 +78,19 @@ function SignUp() {
             onChange={handleOnChange}
           />
         </div>
-        <button type="submit">Create Acoount</button>
+        <div>
+          <button type="submit" onClick={handleOnClick}>
+            Create Acoount
+          </button>
+        </div>
+      </form>
+      <hr></hr>
+      <p>
+        Already Have Account?
         <Link to="/login">
           <button>Back To Login</button>
         </Link>
-      </form>
+      </p>
     </>
   );
 }
