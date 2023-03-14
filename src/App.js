@@ -1,10 +1,9 @@
 import React from "react";
-import firebaseApp from "./firebase";
-import "./App.css";
+import { app, auth } from "./firebase";
 
 function App() {
-  //firebase 설치 확인용
-  console.log(firebaseApp);
+  console.log("app", app);
+  console.log("auth", auth);
   return <div className="App">App</div>;
 }
 
