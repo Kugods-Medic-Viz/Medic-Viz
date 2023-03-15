@@ -6,7 +6,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../../firebase";
+import { fbAuth } from "../../firebase";
 
 function SignIn() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function SignIn() {
     e.preventDefault();
     setErrorMsg("");
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(fbAuth, email, password);
     } catch (error) {
       console.log(error);
       switch (error.code) {
@@ -49,7 +49,7 @@ function SignIn() {
           break;
       }
     }
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(fbAuth, (user) => {
       if (user) {
         navigate("/");
       }
@@ -58,7 +58,7 @@ function SignIn() {
 
   const onSocialClick = async (event) => {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    await signInWithPopup(fbAuth, provider);
     navigate("/");
   };
 
