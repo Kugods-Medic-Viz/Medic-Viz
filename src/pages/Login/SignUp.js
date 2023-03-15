@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth, fbAuth } from "../../firebase";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function SignUp() {
     try {
       setErrorMsg("");
       if (newAccount) {
-        await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(fbAuth, email, password);
         alert("가입 성공!");
         navigate("/");
       } else {

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import { auth } from "./firebase";
+import { fbAuth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import Home from "./pages/Home";
-import SignIn from "./pages/Login/SignIn";
-import SignUp from "./pages/Login/SignUp";
+import Home from "../pages/Home";
+import SignIn from "../pages/Login/SignIn";
+import SignUp from "../pages/Login/SignUp";
 
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(fbAuth, (user) => {
       console.log(user);
       if (user) {
         setIsLoggedIn(user);

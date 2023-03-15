@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
+import { fbAuth } from "../firebase";
 
 function Home({ isLoggendIn }) {
   console.log(isLoggendIn);
@@ -7,7 +7,7 @@ function Home({ isLoggendIn }) {
   const navigate = useNavigate;
 
   const onSignOutClick = () => {
-    auth.signOut();
+    fbAuth.signOut();
   };
 
   return (
