@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,6 +7,7 @@ import {
 import { auth } from "../../firebase";
 
 function SignUp() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
@@ -30,14 +31,12 @@ function SignUp() {
       if (newAccount) {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("가입 성공!");
-        document.location.href = "/";
+        navigate("/");
       } else {
         alert("이미 가입된 계정입니다!");
-        signInWithEmailAndPassword(auth, email, password);
       }
     } catch (error) {
-      console.log(error.code);
-      setErrorMsg(error);
+      console.log(error);
       switch (error.code) {
         case "auth/weak-password":
           setErrorMsg("비밀번호는 6자리 이상이어야 합니다.");
@@ -49,7 +48,6 @@ function SignUp() {
           setErrorMsg("이미 가입되어 있는 계정입니다.");
           break;
       }
-      alert(errorMsg);
     }
   };
 
@@ -85,6 +83,7 @@ function SignUp() {
           </button>
         </div>
       </form>
+      <div>{errorMsg}</div>
       <hr></hr>
       <p>
         Already Have Account?

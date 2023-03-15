@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithRedirect,
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
 function SignIn() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleOnChange = (e) => {
     const {
@@ -27,31 +27,34 @@ function SignIn() {
   const onSignInClick = async (e) => {
     e.preventDefault();
     try {
+      await signInWithEmailAndPassword(auth, email, password);
       setErrorMsg("");
-      signInWithEmailAndPassword(auth, email, password);
-      window.location.href = "/";
     } catch (error) {
       console.log(error);
-      setErrorMsg(error);
-      // switch (error.code) {
-      //   case "auth/weak-password":
-      //     setErrorMsg("비밀번호는 6자리 이상이어야 합니다.");
-      //     break;
-      //   case "auth/invalid-email":
-      //     setErrorMsg("잘못된 이메일 주소입니다.");
-      //     break;
-      //   case "auth/email-already-in-use":
-      //     setErrorMsg("이미 가입되어 있는 계정입니다.");
-      //     break;
-      // }
-      alert(errorMsg);
+      switch (error.code) {
+        case "auth/user-not-found":
+          setErrorMsg("가입되지 않은 계정입니다.");
+          break;
+        case "auth/wrong-password":
+          setErrorMsg("잘못된 비밀번호 입니다.");
+          break;
+        case "auth/too-many-requests":
+          setErrorMsg(
+            "연속된 로그인 요청이 여러 번 감지되어 로그인 요청이 금지되었습니다."
+          );
+          break;
+      }
+    }
+    if (errorMsg === "") {
+      console.log(errorMsg);
+      navigate("/");
     }
   };
 
   const onSocialClick = async (event) => {
     const provider = new GoogleAuthProvider();
     await signInWithPopup(auth, provider);
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (
@@ -91,6 +94,7 @@ function SignIn() {
           </button>
         </div>
       </form>
+      <div>{errorMsg}</div>
       <hr></hr>
       <p>
         Don't Have Account?
