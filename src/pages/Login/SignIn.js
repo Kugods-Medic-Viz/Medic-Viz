@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -48,13 +49,11 @@ function SignIn() {
           break;
       }
     }
-    if (errorMsg === "") {
-      console.log("성공", errorMsg);
-      navigate("/");
-    } else {
-      console.log("실패");
-      console.log(errorMsg);
-    }
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+      }
+    });
   };
 
   const onSocialClick = async (event) => {
