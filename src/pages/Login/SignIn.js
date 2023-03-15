@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -49,7 +50,8 @@ function SignIn() {
 
   const onSocialClick = async (event) => {
     const provider = new GoogleAuthProvider();
-    await signInWithRedirect(auth, provider);
+    await signInWithPopup(auth, provider);
+    window.location.href = "/";
   };
 
   return (
