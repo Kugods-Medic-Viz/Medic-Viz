@@ -11,7 +11,7 @@ function SignIn() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState();
 
   const handleOnChange = (e) => {
     const {
@@ -26,9 +26,9 @@ function SignIn() {
 
   const onSignInClick = async (e) => {
     e.preventDefault();
+    setErrorMsg("");
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setErrorMsg("");
     } catch (error) {
       console.log(error);
       switch (error.code) {
@@ -43,11 +43,17 @@ function SignIn() {
             "연속된 로그인 요청이 여러 번 감지되어 로그인 요청이 금지되었습니다."
           );
           break;
+        case "auth/invalid-email":
+          setErrorMsg("잘못된 이메일입니다.");
+          break;
       }
     }
     if (errorMsg === "") {
-      console.log(errorMsg);
+      console.log("성공", errorMsg);
       navigate("/");
+    } else {
+      console.log("실패");
+      console.log(errorMsg);
     }
   };
 
