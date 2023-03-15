@@ -23,13 +23,14 @@ function SignUp() {
     }
   };
 
-  const handleOnClick = async (e) => {
+  const onSignUplick = async (e) => {
     e.preventDefault();
     try {
       setErrorMsg("");
       if (newAccount) {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("가입 성공!");
+        document.location.href = "/";
       } else {
         alert("이미 가입된 계정입니다!");
         signInWithEmailAndPassword(auth, email, password);
@@ -79,7 +80,7 @@ function SignUp() {
           />
         </div>
         <div>
-          <button type="submit" onClick={handleOnClick}>
+          <button type="submit" onClick={onSignUplick}>
             Create Acoount
           </button>
         </div>
