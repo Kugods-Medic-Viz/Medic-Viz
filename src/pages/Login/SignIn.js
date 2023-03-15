@@ -10,7 +10,6 @@ import { auth } from "../../firebase";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newAccount, setNewAccount] = useState(true);
   const [errorMsg, setErrorMsg] = useState();
 
   const handleOnChange = (e) => {
@@ -24,13 +23,14 @@ function SignIn() {
     }
   };
 
-  const handleOnClick = async (e) => {
+  const onSignInClick = async (e) => {
     e.preventDefault();
     try {
       setErrorMsg("");
       signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "/";
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
       setErrorMsg(error);
       // switch (error.code) {
       //   case "auth/weak-password":
@@ -79,7 +79,7 @@ function SignIn() {
           />
         </div>
         <div>
-          <button type="submit" onClick={handleOnClick}>
+          <button type="submit" onClick={onSignInClick}>
             Log in
           </button>
         </div>
@@ -92,7 +92,7 @@ function SignIn() {
       <hr></hr>
       <p>
         Don't Have Account?
-        <Link to="/signin">
+        <Link to="/signup">
           <button>Go To Make Account</button>
         </Link>
       </p>
