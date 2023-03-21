@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import Home from "../pages/Home";
 import SignIn from "../pages/Login/SignIn";
 import SignUp from "../pages/Login/SignUp";
+import Record from "../pages/Record";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<Home isLoggendIn={isLoggedIn} />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/recording" element={<Record />}></Route>
       </Routes>
     </>
   );
