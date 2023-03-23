@@ -26,10 +26,11 @@ export default class AudioRecord extends React.Component {
     const audioURL = recordedBlob.blobURL;
     console.log(audioURL);
 
-    const sound = new File([audioURL], "soundBlob", {
+    const soundFile = new File([audioURL], "audioRecordBlobFile", {
       lastModified: new Date().getTime(),
       type: "mp4",
     });
+    console.log(soundFile);
   }
 
   render() {
