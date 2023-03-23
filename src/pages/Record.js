@@ -1,4 +1,6 @@
 import Category from "../components/Category";
+import AudioRecord from "../components/AudioRecord";
+
 
 function Record() {
   return (
@@ -10,6 +12,7 @@ function Record() {
         placeholder="병원 이름을 입력해 주세요."
       />
       <Category />
+      <AudioRecord />
     </>
   );
 }
