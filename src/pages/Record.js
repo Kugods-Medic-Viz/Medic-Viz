@@ -1,22 +1,17 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import Category from "../components/Category";
 import AudioRecord from "../components/AudioRecord";
 
 import { dbService, storageService } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
-import {
-  ref,
-  uploadString,
-  getDownloadURL,
-  uploadBytes,
-} from "@firebase/storage";
+import { ref, getDownloadURL, uploadBytes } from "@firebase/storage";
 
 function Record() {
   const [hospital, setHospital] = useState("");
   const [categories, setCategories] = useState([]);
   const [soundFile, setSoundFile] = useState("");
-  const [fileUrl, setFileUrl] = useState("");
 
   const getCategories = (categories) => {
     setCategories(categories);
@@ -32,7 +27,7 @@ function Record() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
-    const soundFileRef = ref(storageService, "soundRecordFile");
+    const soundFileRef = ref(storageService, `origianlRecordFile/${uuidv4()}`);
     const response = await uploadBytes(soundFileRef, soundFile);
 
     const fileUrl = await getDownloadURL(response.ref);
