@@ -5,32 +5,44 @@ import AudioRecord from "../components/AudioRecord";
 
 import { dbService, storageService } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { ref, uploadString, getDownloadURL } from "@firebase/storage";
+import {
+  ref,
+  uploadString,
+  getDownloadURL,
+  uploadBytes,
+} from "@firebase/storage";
 
 function Record() {
   const [hospital, setHospital] = useState("");
   const [categories, setCategories] = useState([]);
   const [soundFile, setSoundFile] = useState("");
+  const [fileUrl, setFileUrl] = useState("");
 
   const getCategories = (categories) => {
     setCategories(categories);
     // console.log(categories, "!!!");
   };
 
-  // const getSoundFile = (soundFile) => {
-  //   setSoundFile(soundFile);
-  // };
+  const getSoundFile = (soundFile) => {
+    setSoundFile(soundFile);
+  };
 
-  // console.log("파일 전달 확인!!", soundFile);
+  console.log("파일 전달 확인!!", soundFile);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(categories);
+
+    const soundFileRef = ref(storageService, "soundRecordFile");
+    const response = await uploadBytes(soundFileRef, soundFile);
+
+    const fileUrl = await getDownloadURL(response.ref);
+
     try {
       const docRef = await addDoc(collection(dbService, "records"), {
         hospitalName: hospital,
         categories: categories,
         createdAt: Date.now(),
+        fileUrl,
       });
       setHospital("");
       setCategories([]);
@@ -42,12 +54,6 @@ function Record() {
 
   const handleOnChange = ({ target: { value } }) => {
     setHospital(value);
-  };
-
-  const onFileChange = (e) => {
-    const {
-      target: { files },
-    } = e;
   };
 
   return (
@@ -62,7 +68,7 @@ function Record() {
           onChange={handleOnChange}
         />
         <Category getCategories={getCategories} />
-        <AudioRecord />
+        <AudioRecord getSoundFile={getSoundFile} />
         <input type="submit" value="분석하기" />
       </form>
     </>

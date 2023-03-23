@@ -24,6 +24,8 @@ function AudioRecord(props) {
       type: "mp4",
     });
     console.log(soundFile);
+
+    props.getSoundFile(soundFile);
   };
 
   return (
