@@ -30,7 +30,7 @@ function Category() {
 
   return (
     <div>
-      <p>태그를 선택해주세요</p>
+      <p>카테고리를 선택해주세요</p>
       <ul>
         {symptoms.map((symptom, idx) => (
           <li
