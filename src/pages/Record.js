@@ -10,11 +10,18 @@ import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 function Record() {
   const [hospital, setHospital] = useState("");
   const [categories, setCategories] = useState([]);
+  const [soundFile, setSoundFile] = useState("");
 
   const getCategories = (categories) => {
     setCategories(categories);
-    console.log(categories, "!!!");
+    // console.log(categories, "!!!");
   };
+
+  // const getSoundFile = (soundFile) => {
+  //   setSoundFile(soundFile);
+  // };
+
+  // console.log("파일 전달 확인!!", soundFile);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();

@@ -1,27 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import { ReactMic } from "react-mic";
 
-export default class AudioRecord extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      record: false,
-    };
-  }
+function AudioRecord(props) {
+  const [recordState, setRecordState] = useState(false);
 
-  startRecording = () => {
-    this.setState({ record: true });
+  const startRecording = () => {
+    setRecordState(true);
+    console.log(recordState);
   };
 
-  stopRecording = () => {
-    this.setState({ record: false });
+  const stopRecording = () => {
+    setRecordState(false);
+    console.log(recordState);
   };
 
-  //   onData(recordedBlob) {
-  //     console.log("chunk of real-time data is: ", recordedBlob);
-  //   }
-
-  onStop(recordedBlob) {
+  const onStop = (recordedBlob) => {
     console.log("recordedBlob is: ", recordedBlob);
     const audioURL = recordedBlob.blobURL;
     console.log(audioURL);
@@ -31,23 +24,18 @@ export default class AudioRecord extends React.Component {
       type: "mp4",
     });
     console.log(soundFile);
-  }
+  };
 
-  render() {
-    return (
-      <div>
-        <ReactMic
-          record={this.state.record}
-          mimeType="audio/mp3"
-          onStop={this.onStop}
-        />
-        <button onClick={this.startRecording} type="button">
-          Start
-        </button>
-        <button onClick={this.stopRecording} type="button">
-          Stop
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <ReactMic record={recordState} mimeType="audio/mp3" onStop={onStop} />
+      <button onClick={startRecording} type="button">
+        Start
+      </button>
+      <button onClick={stopRecording} type="button">
+        Stop
+      </button>
+    </div>
+  );
 }
+export default AudioRecord;
