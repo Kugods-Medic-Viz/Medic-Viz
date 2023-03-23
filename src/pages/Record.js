@@ -1,6 +1,7 @@
 import Category from "../components/Category";
 import AudioRecord from "../components/AudioRecord";
 
+
 function Record() {
   return (
     <>
