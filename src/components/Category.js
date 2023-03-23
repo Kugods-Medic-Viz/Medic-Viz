@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Category() {
+function Category(props) {
   const symptoms = [
     "감기/몸살",
     "눈 질환",
@@ -24,6 +24,7 @@ function Category() {
       return;
     }
     setCategories([...categories, selectedItem]);
+    props.getCategories(categories);
   };
 
   console.log(categories);
