@@ -39,4 +39,5 @@ export const AnalyzeBtn = styled.input`
   background: url("img/Record/analyzeBtn.png");
   background-size: cover;
   border: none;
+  margin: 42px 0px;
 `;
