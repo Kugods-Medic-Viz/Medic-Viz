@@ -46,6 +46,12 @@ const Wrap = styled.div`
   * {
     max-width: 480px;
   }
+
+  ${"" /* 녹음 기능 wave 나오는 부분 숨기기 */}
+  canvas.visualizer {
+    width: 0px;
+    height: 0px;
+  }
 `;
 
 export default App;

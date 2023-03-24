@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as S from "../styles/Record/CategoryStyle";
 
 function Category(props) {
   const symptoms = [
@@ -31,11 +32,11 @@ function Category(props) {
 
   return (
     <div>
-      <p>카테고리를 선택해주세요</p>
-      <ul>
+      <S.CategoryTitle>카테고리를 선택해주세요</S.CategoryTitle>
+      <S.CategoryWrap>
         {symptoms.map((symptom, idx) => (
-          <li
-            className={
+          <S.CategoryList
+            activeState={
               categories.find((category) => category === symptom)
                 ? "menu-item active"
                 : "menu-item"
@@ -44,9 +45,9 @@ function Category(props) {
             key={idx}
           >
             {symptom}
-          </li>
+          </S.CategoryList>
         ))}
-      </ul>
+      </S.CategoryWrap>
     </div>
   );
 }
