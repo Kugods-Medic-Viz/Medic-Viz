@@ -42,9 +42,7 @@ function AudioRecord(props) {
         {recordState === false ? (
           <S.startBtn onClick={startRecording} type="button"></S.startBtn>
         ) : (
-          <S.stopBtn onClick={stopRecording} type="button">
-            Stop
-          </S.stopBtn>
+          <S.stopBtn onClick={stopRecording} type="button"></S.stopBtn>
         )}
       </S.btnWrap>
     </div>
