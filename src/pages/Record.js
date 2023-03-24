@@ -7,11 +7,13 @@ import AudioRecord from "../components/AudioRecord";
 import { dbService, storageService } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "@firebase/storage";
+import * as S from "../styles/Record/RecordStyle";
 
 function Record() {
   const [hospital, setHospital] = useState("");
   const [categories, setCategories] = useState([]);
   const [soundFile, setSoundFile] = useState("");
+  // const [stopstate, setStopState] = useState();
 
   const getCategories = (categories) => {
     setCategories(categories);
@@ -21,6 +23,10 @@ function Record() {
   const getSoundFile = (soundFile) => {
     setSoundFile(soundFile);
   };
+
+  // const getStopState = (stopState) => {
+  //   setStopState(stopState);
+  // };
 
   console.log("파일 전달 확인!!", soundFile);
 
@@ -52,10 +58,10 @@ function Record() {
   };
 
   return (
-    <>
-      <form onSubmit={handleOnSubmit}>
-        <h1> 진료 내용 기록하기 </h1>
-        <input
+    <S.RecordWrap>
+      <S.RecordFrom onSubmit={handleOnSubmit}>
+        <S.RecordTitle> 진료 내용 기록하기 </S.RecordTitle>
+        <S.RecordInput
           name="hospital"
           type="text"
           value={hospital}
@@ -64,9 +70,12 @@ function Record() {
         />
         <Category getCategories={getCategories} />
         <AudioRecord getSoundFile={getSoundFile} />
-        <input type="submit" value="분석하기" />
-      </form>
-    </>
+        <S.BtnWarp>
+          <S.AnalyzeBtn type="submit" value="" />
+        </S.BtnWarp>
+      </S.RecordFrom>
+    </S.RecordWrap>
   );
 }
+
 export default Record;

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { ReactMic } from "react-mic";
+import * as S from "../styles/Record/AudioRecordStyle";
 
 function AudioRecord(props) {
   const [recordState, setRecordState] = useState(false);
+  // const [isStopped, setIsStopped] = useState(false);
 
   const startRecording = () => {
     setRecordState(true);
@@ -24,19 +26,27 @@ function AudioRecord(props) {
       type: "mp4",
     });
     console.log(soundFile);
-
     props.getSoundFile(soundFile);
+    // props.getStopState(isStopped);
   };
 
   return (
     <div>
-      <ReactMic record={recordState} mimeType="audio/mp3" onStop={onStop} />
-      <button onClick={startRecording} type="button">
-        Start
-      </button>
-      <button onClick={stopRecording} type="button">
-        Stop
-      </button>
+      <ReactMic
+        record={recordState}
+        mimeType="audio/mp3"
+        onStop={onStop}
+        visualSetting="none"
+      />
+      <S.btnWrap>
+        {recordState === false ? (
+          <S.startBtn onClick={startRecording} type="button"></S.startBtn>
+        ) : (
+          <button onClick={stopRecording} type="button">
+            Stop
+          </button>
+        )}
+      </S.btnWrap>
     </div>
   );
 }
