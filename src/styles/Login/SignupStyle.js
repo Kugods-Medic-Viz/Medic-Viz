@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const SigninWrap = styled.div`
+export const SignupWrap = styled.div`
 `;
 
-export const SigninForm = styled.form`
+export const SignupForm = styled.form`
   padding: 20px;
   margin: 10px;
 `;
 
-export const SigninTitle = styled.h1`
+export const SignupTitle = styled.h1`
   color: ${(props) => props.theme.gray};
   font-size: 28px;
   font-weight: 700;
@@ -25,7 +25,7 @@ export const Logo = styled.button`
   margin-bottom: 100px;
 `;
 
-export const SigninInput = styled.input`
+export const SignupInput = styled.input`
   width: 326px;
   height: 40px;
   border: 2px solid #a1a1a1;
@@ -45,29 +45,21 @@ export const BtnWrap = styled.div`
   flex-direction: column;
 `;
 
-export const SigninBtn = styled.button`
+export const SignupBtn = styled.button`
   width: 326px;
   height: 40px;
-  background: url("img/Login/signinBtn2.png");
+  background: url("img/Login/signupBtn.png");
   background-size: cover;
   border: none;
   margin: 40px 0px 20px;
 `;
 
-export const SigningoogleBtn = styled.button`
-  width: 326px;
-  height: 40px;
-  background: url("img/Login/signingoogleBtn.png");
-  background-size: cover;
-  border: none;
-  margin: 0px 0px 30px;
-`;
 
-export const MovetoSignup = styled.div`
+export const MovetoSignin = styled.div`
   font-size: 12px;
 `;
 
-export const SignupBtn = styled.button`
+export const SigninBtn = styled.button`
   width: 100px;
   height: 35px;
   background-size: cover;
