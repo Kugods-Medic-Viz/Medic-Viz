@@ -16,7 +16,7 @@ export const RecordTitle = styled.h1`
 `;
 
 export const RecordInput = styled.input`
-  width: 400px;
+  width: 100%;
   height: 48px;
   border: 2px solid #a1a1a1;
   border-radius: 4px;
