@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as S from "../../styles/Login/SignupStyle";
 import { Link, useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
@@ -52,46 +53,44 @@ function SignUp() {
   };
 
   return (
-    <>
-      <h1> 회원가입 페이지 </h1>
-      <form>
+    <S.SignupWrap>
+      <S.SignupForm>
+        <S.SignupTitle> 회원가입 </S.SignupTitle>
+        <S.Logo> </S.Logo>
         <div>
-          Email :
-          <input
+          <S.SignupInput
             name="email"
             type="email"
-            placeholder="Enter Email"
+            placeholder="이메일 주소"
             required
             value={email}
             onChange={handleOnChange}
           />
         </div>
         <div>
-          Password :
-          <input
+          <S.SignupInput
             name="password"
             type="password"
-            placeholder="Enter Password"
+            placeholder="비밀번호 (6자리 이상)"
             required
             value={password}
             onChange={handleOnChange}
           />
         </div>
-        <div>
-          <button type="submit" onClick={onSignUplick}>
-            Create Acoount
-          </button>
-        </div>
-      </form>
+        <S.BtnWrap>
+          <S.SignupBtn type="submit" onClick={onSignUplick}>
+          </S.SignupBtn>
+        </S.BtnWrap>
+      </S.SignupForm>
       <div>{errorMsg}</div>
       <hr></hr>
-      <p>
-        Already Have Account?
+      <S.MovetoSignin>
+        이미 계정이 있으신가요?
         <Link to="/signin">
-          <button>Back To Login</button>
+          <S.SigninBtn>로그인하기</S.SigninBtn>
         </Link>
-      </p>
-    </>
+      </S.MovetoSignin>
+    </S.SignupWrap>
   );
 }
 export default SignUp;
