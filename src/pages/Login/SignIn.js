@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as S from "../../styles/Login/SigninStyle";
 import { Link, useNavigate } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
@@ -63,51 +64,48 @@ function SignIn() {
   };
 
   return (
-    <>
-      <h1> 로그인 페이지 </h1>
-      <form>
+    <S.SigninWrap>
+      <S.SigninForm>
+        <S.SigninTitle> 로그인 </S.SigninTitle>
+        <S.Logo> </S.Logo>
         <div>
-          Email :
-          <input
+          <S.SigninInput
             name="email"
             type="email"
-            placeholder="Enter Email"
+            placeholder="이메일 주소"
             required
             value={email}
             onChange={handleOnChange}
           />
         </div>
         <div>
-          Password :
-          <input
+          <S.SigninInput
             name="password"
             type="password"
-            placeholder="Enter Password"
+            placeholder="비밀번호"
             required
             value={password}
             onChange={handleOnChange}
           />
         </div>
-        <div>
-          <button type="submit" onClick={onSignInClick}>
-            Log in
-          </button>
-        </div>
-        <div>
-          <button onClick={onSocialClick} name="google">
-            Continue with Google
-          </button>
-        </div>
-      </form>
+        <S.BtnWrap>
+          <S.SigninBtn type="submit" onClick={onSignInClick}>
+          </S.SigninBtn>
+        </S.BtnWrap>
+        <S.BtnWrap>
+          <S.SigningoogleBtn onClick={onSocialClick} name="google">
+          </S.SigningoogleBtn>
+        </S.BtnWrap>
+      </S.SigninForm>
       <div>{errorMsg}</div>
       <hr></hr>
-      <p>
-        Don't Have Account?
+      <S.MovetoSignup>
+        아직 계정이 없다면
         <Link to="/signup">
-          <button>Go To Make Account</button>
+          <S.SignupBtn> 계정 만들기 </S.SignupBtn>
         </Link>
-      </p>
-    </>
+      </S.MovetoSignup>
+    </S.SigninWrap>
   );
 }
 export default SignIn;
