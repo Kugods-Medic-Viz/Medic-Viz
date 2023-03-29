@@ -1,39 +1,21 @@
-import { Link, useNavigate } from "react-router-dom";
-import { fbAuth } from "../firebase";
+import { Link } from "react-router-dom";
 
 function Home({ isLoggendIn }) {
   console.log(isLoggendIn);
 
-  const navigate = useNavigate;
-
-  const onSignOutClick = () => {
-    fbAuth.signOut();
-  };
-
   return (
     <>
-      <h1> Home </h1>
-      <div></div>
       <div>
-        {isLoggendIn === false ? (
-          <div>
-            [비로그인 상태]
-            <ul>
-              <li>
-                <Link to="/signin">로그인하러 가기</Link>
-              </li>
-              <li>
-                <Link to="/signup">회원가입하러 가기</Link>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <div>
-            <p>로그인 상태</p>
-            <button onClick={onSignOutClick}>로그아웃 하기</button>
-          </div>
-        )}
+        <div>로고 영역</div>
+        <div>
+          {/* 이 링크 태그는 라우팅 태그라서 태그명 변경하면 안됩니다! 주석은 확인하시면 지워도 괜찮아요 ! */}
+          <Link to="/recording">
+            <button>진료 내용 기록하기</button>
+          </Link>
+          <button>질환별 진단 순서도</button>
+        </div>
       </div>
+      <div>서비스 소개 영역</div>
     </>
   );
 }

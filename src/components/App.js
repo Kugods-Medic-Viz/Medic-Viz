@@ -5,14 +5,22 @@ import { onAuthStateChanged } from "firebase/auth";
 import Home from "../pages/Home";
 import SignIn from "../pages/Login/SignIn";
 import SignUp from "../pages/Login/SignUp";
+import SignOut from "../pages/Login/SignOut";
 import Record from "../pages/Record";
 import styled from "styled-components";
+import Nav from "./Nav";
 
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isHome, setIsHome] = useState(false);
+
+  const currPath = window.location.pathname;
 
   useEffect(() => {
+    if (currPath === "/") {
+      setIsHome(true);
+    }
     onAuthStateChanged(fbAuth, (user) => {
       console.log(user);
       if (user) {
@@ -22,13 +30,17 @@ function App() {
       }
       setInit(true);
     });
-  }, []);
+  }, [currPath]);
 
   return (
     <Wrap>
-      <Link to="/">Home</Link>
+      <Nav isLoggedIn={isLoggedIn} isHome={isHome} />
       <Routes>
         <Route path="/" element={<Home isLoggendIn={isLoggedIn} />}></Route>
+        <Route
+          path="/signout"
+          element={<SignOut isLoggedIn={isLoggedIn} />}
+        ></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/recording" element={<Record />}></Route>
@@ -40,8 +52,7 @@ function App() {
 const Wrap = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-item: center;
+  flex-direction: column;
   min-height: calc(var(--vh, 1vh) * 100);
   * {
     max-width: 480px;
