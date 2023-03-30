@@ -1,77 +1,68 @@
-## 시작 가이드
+## 👨🏻‍⚕️ Introduction
 
-### Requirements
+## 👨🏻‍⚕️ Problem
 
-For building and running the application you need:
+### 🩺 Our Goals
+<img width="528" alt="image" src="https://user-images.githubusercontent.com/77691829/228758226-3b64fce1-f185-407b-9ce3-a9ecd95bb1c6.png">
 
-- [Node.js 8.15.0](https://nodejs.org/en/blog/release/v16.17.1)
-- [Npm v16.17.1](https://www.npmjs.com/package/npm/v/8.15.0)
-- Firebase 9.17.2
+##  👨🏻‍⚕️ Solution
 
-### Installation
+### 🩺 Solution 1 - Recording (STT-Function)
 
+### 🩺 Solution 2 - Standard Diagnose Algorithm
+
+
+##  👨🏻‍⚕️ Tech Stack
+<img width="663" alt="image" src="https://user-images.githubusercontent.com/77691829/228756498-93a8dd19-05b1-4cb3-a397-740d9fe3dc1d.png">
+<br/>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://user-images.githubusercontent.com/77691829/228751202-3f0b757a-b0c4-4a21-8aaf-8beb65ef5f0a.png" width="60px">
+      <br/>
+      <strong>React.js</strong>
+    </td>
+    <td>Used <strong>React</strong> for client development.</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Firebase_Logo.png/220px-Firebase_Logo.png" width="130px"><br/>
+      <strong>Firebase</strong>
+    </td>
+    <td>Used <strong>Firebase</strong> for server development</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://www.serviops.ca/wp-content/uploads/et_temp/Google-Cloud-Platform-GCP-Logo-95213_1080x675.png" width="120px"><br/>
+      <strong>Google Cloud Platform (GCP)</strong>
+    </td>
+    <td> Used <strong>Speech-to-Text API</strong> for STT-Function</td>
+  </tr>
+    <tr>
+    <td align="center">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" width="50px" height="50px"><br/>
+      <strong>Python Selenium</strong>
+    </td>
+    <td> Used <strong>Python Selenium Pacakage</strong> for crawling disease infromation </td>
+  </tr>
+</table>
+
+
+## 👨🏻‍⚕️ Start Guide
 ```bash
-#clone 받기
-$ https://github.com/Kugods-Medic-Viz/Medic-Viz.git
+# Clone Repository 
+$ git clone https://github.com/Kugods-Medic-Viz/Medic-Viz.git
+# Move to folder
 $ cd Medic-Viz
 
-#패키지 설치 후 실행
+# Install dependency
 $ npm install
+# Run
 $ npm start
 ```
 
-```bash
-#.env 파일 추가
-# firebase database config - SDK
-REACT_APP_APIKEY=####
-REACT_APP_AUTH_DOMAIN=####
-REACT_APP_PROJECT_ID=####
-REACT_APP_STORAGE_BUCKET=####
-REACT_APP_MESSAGIN_ID=####
-REACT_APP_APP_ID=####
-REACT_APP_MEASUREMENT_ID=####
-```
-
----
-
-## 브랜치 전략
-
-### 기본
-
-**Github Flow**
-
-1. 브랜치 생성
-
-2. 개발 & 커밋 & 푸쉬
-
-3. PR(Pull Request) 생성
-
-4. 리뷰 & 토의
-
-5. 최종 Merge
-
-### 구조
-
-`feature/{구현기능}`
-
-- main
-  - feature/기능1
-  - feature/기능2  
-    ...
-
-## 커밋 규칙
-
-### 형식
-
-- ACTIVITY : 커밋 메세지
-
-### ACTIVITY 목록
-
-- INT: only for initial commit
-- DOC: changes document or comment
-- FTR: add new feature
-- MOD: modify existing feature
-- FIX: fix an error or issue
-- RFC: refactor code
-- ADD: add new file or directory
-- RMV: remove existing file or directory
+## 👨🏻‍⚕️ Contributors
+* 김소형 <a href="https://github.com/Smaller25"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Smaller25"/></a> / AI
+* 도경민 / Design
+* 조연서 <a href="https://github.com/Yeonseo-Jo"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/Yeonseo-Jo"/></a> / Frontend & Backend
+* 황민아 <a href="https://github.com/hwangmina"><img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white&link=https://github.com/hwangmina"/></a> /  AI & Frontend
