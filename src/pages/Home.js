@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as S from "../styles/Home";
+import * as S from "../styles/HomeStyle";
 
 function Home({ isLoggendIn }) {
   console.log(isLoggendIn);
@@ -17,7 +17,6 @@ function Home({ isLoggendIn }) {
           <S.AlgorithmBtn></S.AlgorithmBtn>
         </S.BtnWrap>
       </S.HomeWrap>
-      <div>서비스 소개 영역</div>
     </>
   );
 }

@@ -4,6 +4,8 @@ export const HomeWrap = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   display: flex;
   flex-direction: column;
+  padding: 30px;
+  height: 750px;
 `;
 
 export const LogoImg = styled.button`
@@ -12,7 +14,7 @@ export const LogoImg = styled.button`
   background: url("img/Home/LogoImg.png");
   background-size: cover;
   border: none;
-  margin: 80px 0px 0px 70px;
+  margin: 80px 0px 0px 30px;
 `;
 
 export const Logo = styled.button`
@@ -21,15 +23,17 @@ export const Logo = styled.button`
   background: url("img/Home/LogoText.png");
   background-size: cover;
   border: none;
-  margin: 20px 0px 100px 70px;
+  margin: 20px 0px 100px 30px;
 `;
 
 export const BtnWrap = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 55px;
-  padding-right: 55px;
+  ${
+    "" /* padding-left: 55px;
+  padding-right: 55px; */
+  }
   margin-bottom: 100px;
 `;
 
@@ -48,5 +52,3 @@ export const AlgorithmBtn = styled.button`
   background-size: cover;
   border: none;
 `;
-
-

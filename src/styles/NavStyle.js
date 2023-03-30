@@ -5,6 +5,8 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  margin: 0px 20px;
   background: ${(props) =>
     props.navColor === "nav sky" ? "#DEEBFF" : "##FEFEFE"};
 `;
@@ -15,9 +17,7 @@ export const MenuBtn = styled.div`
   background: url("img/Nav/menuBtn.png");
   background-size: cover;
   border: none;
-  margin-left: 20px;
-  margin-right: auto;
-
+  margin-right: 60px;
 `;
 
 export const MenuIcon = styled.div`
@@ -26,7 +26,7 @@ export const MenuIcon = styled.div`
   background: url("img/Nav/Logo.png");
   background-size: cover;
   border: none;
-
+  margin
 `;
 
 export const StartBtn = styled.button`
@@ -35,8 +35,8 @@ export const StartBtn = styled.button`
   background: url("img/Nav/StartBtn.png");
   background-size: cover;
   border: none;
-  margin-right: 20px;
-  margin-left: 120px;
+  ${"" /* margin-right: 20px; */}
+  ${"" /* margin-left: 120px; */}
 `;
 
 export const LoggedinBtn = styled.button`
@@ -45,6 +45,6 @@ export const LoggedinBtn = styled.button`
   background: url("img/Nav/KimGoogle.png");
   background-size: cover;
   border: none;
-  margin-right: 10px;
-  margin-left: 130px;
+  ${"" /* margin-right: 10px; */}
+  ${"" /* margin-left: 130px; */}
 `;

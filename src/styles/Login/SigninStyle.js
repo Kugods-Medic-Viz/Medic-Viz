@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SigninWrap = styled.div`
-  padding: 20px;
+  padding: 20px 30px;
 `;
 
 export const SigninForm = styled.form`
@@ -17,7 +17,7 @@ export const SigninTitle = styled.h1`
   font-size: 28px;
   font-weight: 700;
   padding: 20px 0 20px 0;
-  margin: 10px 0px 0px 70px;
+  margin: 10px 0px 0px 10px;
 `;
 
 export const Logo = styled.button`
@@ -26,7 +26,19 @@ export const Logo = styled.button`
   background: url("img/Login/logo.png");
   background-size: cover;
   border: none;
-  margin: 0px 0px 80px 70px;
+  margin: 0px 0px 80px 10px;
+`;
+
+export const ErrorWrap = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
+export const ErrorMsg = styled.div`
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
 `;
 
 export const SigninInput = styled.input`
@@ -42,7 +54,6 @@ export const SigninInput = styled.input`
   box-sizing: border-box;
   margin-bottom: 20px;
 `;
-
 
 export const BtnWrap = styled.div`
   display: flex;

@@ -53,7 +53,6 @@ const Wrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: calc(var(--vh, 1vh) * 100);
   * {
     max-width: 480px;
   }

@@ -69,6 +69,9 @@ function SignIn() {
       <S.Logo> </S.Logo>
       <S.SigninForm>
         <div>
+          <S.ErrorWrap>
+            <S.ErrorMsg>{errorMsg}</S.ErrorMsg>
+          </S.ErrorWrap>
           <S.SigninInput
             name="email"
             type="email"
@@ -89,15 +92,15 @@ function SignIn() {
           />
         </div>
         <S.BtnWrap>
-          <S.SigninBtn type="submit" onClick={onSignInClick}>
-          </S.SigninBtn>
+          <S.SigninBtn type="submit" onClick={onSignInClick}></S.SigninBtn>
         </S.BtnWrap>
         <S.BtnWrap>
-          <S.SigningoogleBtn onClick={onSocialClick} name="google">
-          </S.SigningoogleBtn>
+          <S.SigningoogleBtn
+            onClick={onSocialClick}
+            name="google"
+          ></S.SigningoogleBtn>
         </S.BtnWrap>
       </S.SigninForm>
-      <div>{errorMsg}</div>
       <hr></hr>
       <S.MovetoSignup>
         아직 계정이 없다면
