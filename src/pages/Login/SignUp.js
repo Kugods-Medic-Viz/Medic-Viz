@@ -31,10 +31,9 @@ function SignUp() {
       setErrorMsg("");
       if (newAccount) {
         await createUserWithEmailAndPassword(fbAuth, email, password);
-        alert("가입 성공!");
         navigate("/");
       } else {
-        alert("이미 가입된 계정입니다!");
+        setErrorMsg("이미 가입된 계정입니다!");
       }
     } catch (error) {
       console.log(error);
@@ -54,9 +53,12 @@ function SignUp() {
 
   return (
     <S.SignupWrap>
+      <S.SignupTitle> 회원가입 </S.SignupTitle>
+      <S.Logo> </S.Logo>
       <S.SignupForm>
-        <S.SignupTitle> 회원가입 </S.SignupTitle>
-        <S.Logo> </S.Logo>
+        <S.ErrorWrap>
+          <S.ErrorMsg>{errorMsg}</S.ErrorMsg>
+        </S.ErrorWrap>
         <div>
           <S.SignupInput
             name="email"
@@ -78,11 +80,9 @@ function SignUp() {
           />
         </div>
         <S.BtnWrap>
-          <S.SignupBtn type="submit" onClick={onSignUplick}>
-          </S.SignupBtn>
+          <S.SignupBtn type="submit" onClick={onSignUplick}></S.SignupBtn>
         </S.BtnWrap>
       </S.SignupForm>
-      <div>{errorMsg}</div>
       <hr></hr>
       <S.MovetoSignin>
         이미 계정이 있으신가요?

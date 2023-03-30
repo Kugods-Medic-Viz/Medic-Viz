@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const SignupWrap = styled.div`
+  padding: 20px 30px;
 `;
 
 export const SignupForm = styled.form`
-  padding: 20px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SignupTitle = styled.h1`
@@ -13,7 +17,7 @@ export const SignupTitle = styled.h1`
   font-size: 28px;
   font-weight: 700;
   padding: 20px 0 20px 0;
-  margin-bottom: 0px;
+  margin: 10px 0px 0px 10px;
 `;
 
 export const Logo = styled.button`
@@ -22,12 +26,24 @@ export const Logo = styled.button`
   background: url("img/Login/logo.png");
   background-size: cover;
   border: none;
-  margin-bottom: 100px;
+  margin: 0px 0px 80px 10px;
+`;
+
+export const ErrorWrap = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
+export const ErrorMsg = styled.div`
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
 `;
 
 export const SignupInput = styled.input`
-  width: 326px;
-  height: 40px;
+  width: 340px;
+  height: 41px;
   border: 2px solid #a1a1a1;
   border-radius: 4px;
   display: flex;
@@ -39,24 +55,26 @@ export const SignupInput = styled.input`
   margin-bottom: 20px;
 `;
 
-
 export const BtnWrap = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 export const SignupBtn = styled.button`
-  width: 326px;
-  height: 40px;
+  width: 340px;
+  height: 41px;
   background: url("img/Login/signupBtn.png");
   background-size: cover;
   border: none;
   margin: 40px 0px 20px;
 `;
 
-
 export const MovetoSignin = styled.div`
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SigninBtn = styled.button`
@@ -64,5 +82,5 @@ export const SigninBtn = styled.button`
   height: 35px;
   background-size: cover;
   border: none;
-  margin: 0px 20px;
+  margin: 5px 20px;
 `;

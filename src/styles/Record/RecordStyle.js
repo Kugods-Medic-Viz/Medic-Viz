@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const RecordWrap = styled.div`
   background-color: ${(props) => props.theme.bgColor};
+  height: 800px;
 `;
 export const RecordFrom = styled.form`
   padding: 30px;
