@@ -1,19 +1,20 @@
+![header](https://capsule-render.vercel.app/api?type=rect&color=DEEBFF&fontColor=697492&text=%20%20Medic-Viz%20%20&fontAlign=25&fontSize=30&textBg=true&desc=%20%20Medical%20Diagnosis%20Assistance%20Service&descAlign=60&descAlignY=50)
 ## 👨🏻‍⚕️ Introduction
 
 ## 👨🏻‍⚕️ Problem
 
-### 🩺 Our Goals
-<img width="528" alt="image" src="https://user-images.githubusercontent.com/77691829/228758226-3b64fce1-f185-407b-9ce3-a9ecd95bb1c6.png">
+### 🏥 Our Goals
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/77691829/228758226-3b64fce1-f185-407b-9ce3-a9ecd95bb1c6.png">
 
 ##  👨🏻‍⚕️ Solution
 
-### 🩺 Solution 1 - Recording (STT-Function)
+### 🏥 Solution 1 - Recording (STT-Function)
 
-### 🩺 Solution 2 - Standard Diagnose Algorithm
+### 🏥 Solution 2 - Standard Diagnose Algorithm
 
 
-##  👨🏻‍⚕️ Tech Stack
-<img width="663" alt="image" src="https://user-images.githubusercontent.com/77691829/228756498-93a8dd19-05b1-4cb3-a397-740d9fe3dc1d.png">
+##  👨🏻‍⚕️ Teck Stack
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/77691829/228756498-93a8dd19-05b1-4cb3-a397-740d9fe3dc1d.png">
 <br/>
 <table>
   <tr>
