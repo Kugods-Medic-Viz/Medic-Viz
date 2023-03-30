@@ -54,9 +54,9 @@ function SignUp() {
 
   return (
     <S.SignupWrap>
+      <S.SignupTitle> 회원가입 </S.SignupTitle>
+      <S.Logo> </S.Logo>
       <S.SignupForm>
-        <S.SignupTitle> 회원가입 </S.SignupTitle>
-        <S.Logo> </S.Logo>
         <div>
           <S.SignupInput
             name="email"

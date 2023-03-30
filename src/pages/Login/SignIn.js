@@ -65,9 +65,9 @@ function SignIn() {
 
   return (
     <S.SigninWrap>
+      <S.SigninTitle> 로그인 </S.SigninTitle>
+      <S.Logo> </S.Logo>
       <S.SigninForm>
-        <S.SigninTitle> 로그인 </S.SigninTitle>
-        <S.Logo> </S.Logo>
         <div>
           <S.SigninInput
             name="email"

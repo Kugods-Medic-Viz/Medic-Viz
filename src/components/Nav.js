@@ -4,18 +4,16 @@ import * as S from "../styles/NavStyle";
 function Nav({ isLoggedIn, isHome }) {
   return (
     <>
-      <S.Nav navColor={isHome === true ? "nav sky" : "nav white"}>
-        <div>메뉴 아이콘</div>
-        <div>중앙 아이콘</div>
-        <div>
+      <S.Nav navColor={isHome === true ? "nav white" : "nav white"}>
+        <S.MenuBtn></S.MenuBtn>
+        <S.MenuIcon></S.MenuIcon>
           {isLoggedIn === false ? (
             <Link to="/signup">
-              <button>시작하기</button>
+              <S.StartBtn></S.StartBtn>
             </Link>
           ) : (
-            <button>김구글</button>
+            <S.LoggedinBtn></S.LoggedinBtn>
           )}
-        </div>
       </S.Nav>
     </>
   );
