@@ -5,7 +5,7 @@
 
 &nbsp; Medic-Viz is mobile-first web service that uses Firebase, Google Cloud Platform(GCP).
 <br><br/>
-&nbsp; By using Medic-Viz, we hope to foster smoother collaboration between patients and doctors, and help promote a more sustainable and equitable healthcare system. Thank you to all of my teammates for your hard work and contributions.
+&nbsp; By using Medic-Viz, we hope to foster smoother collaboration between patients and doctors, and help promote a more sustainable and equitable healthcare system.
 
 <br><br/>
 ## 👨🏻‍⚕️ Problem
