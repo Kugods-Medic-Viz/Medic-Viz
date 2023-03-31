@@ -38,7 +38,7 @@
 
 <br><br/>
 ##  👨🏻‍⚕️ Tech Stack
-<p align="center"><img width="600" alt="image" src="https://user-images.githubusercontent.com/77691829/228756498-93a8dd19-05b1-4cb3-a397-740d9fe3dc1d.png" align="center"></p>
+<p align="center"><img width="600" alt="image" src="https://user-images.githubusercontent.com/77691829/229009040-e3c18f29-c09e-4213-8059-41c899dce64a.png" align="center"></p>
 <br/>
 <table>
   <tr>
